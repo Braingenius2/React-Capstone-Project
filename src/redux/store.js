@@ -1,4 +1,3 @@
-import React from 'react';
 import { configureStore } from '@reduxjs/toolkit';
 import continentsReducer from './continents/continentsSlice';
 import countriesReducer from './countries/countriesSlice';
