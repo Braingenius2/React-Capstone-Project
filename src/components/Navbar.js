@@ -11,7 +11,7 @@ const Navbar = () => (
       </NavLink>
       <NavLink to="/id" />
     </li>
-    <li><h1 className="title">Covid-19 Stats</h1></li>
+    <li><h1 className="text-3xl font-bold underline">Covid-19 Stats</h1></li>
     <li className="icon">
       <FontAwesomeIcon icon={icon({ name: 'coffee', family: 'sharp', style: 'solid' })} />
       <FontAwesomeIcon icon={icon({ name: 'microphone', family: 'sharp', style: 'solid' })} />
