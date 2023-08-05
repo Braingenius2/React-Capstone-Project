@@ -7,13 +7,13 @@ const fetchContinents = createAsyncThunk('fetchContinents', async (_, { rejectWi
     const response = await axios.get('https://disease.sh/v3/covid-19/continents');
     return response.data;
   } catch (error) {
-    return thunkAPI.rejectWithValue('There was an error fetching all continents', error);
+    return rejectWithValue('There was an error fetching all continents', error);
   }
 });
 
 const fetchAContinent = createAsyncThunk('fetchAContinent', async (continent, { rejectWithValue }) => {
   try {
-    const response = await axios.get(`${apiEndpoint}/${continent}`);
+    const response = await axios.get(`https://disease.sh/v3/covid-19/continents/${continent}`);
     return response.data;
   } catch (error) {
     return rejectWithValue('There was an error fetching the continent', error);
@@ -69,5 +69,5 @@ const continentsSlice = createSlice({
   },
 });
 
-export { fetchContinents, fetchAContinent }; 
+export { fetchContinents, fetchAContinent };
 export default continentsSlice.reducer;

@@ -13,20 +13,20 @@ const Country = ({
       </div>
       <div>
         <h3>{name}</h3>
-        <p >
+        <p>
           {covidCases}
           {' '}
           Covid Cases
         </p>
       </div>
-      <div >
+      <div>
         <div>right arrow in circle here</div>
       </div>
     </a>
   );
 };
 
-CountryItem.propTypes = {
+Country.propTypes = {
   flag: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   covidCases: PropTypes.string.isRequired,

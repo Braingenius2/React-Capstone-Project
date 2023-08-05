@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Hero = ({ imageSrc, name, details }) => (
   <div className="hero">

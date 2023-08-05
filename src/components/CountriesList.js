@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import Country from './CountryItem';
+import Country from './Country';
 
 const CountriesList = () => {
   const { countries } = useSelector((state) => state.countries);

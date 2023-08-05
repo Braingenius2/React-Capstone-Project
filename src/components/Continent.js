@@ -20,7 +20,7 @@ const Continent = ({ map, name, covidCases }) => {
           Covid cases
         </p>
       </div>
-    </a>  
+    </a>
   );
 };
 
