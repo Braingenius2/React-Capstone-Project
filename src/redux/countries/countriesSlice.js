@@ -1,10 +1,11 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { v4 as uuidv4} from 'uuid';
 import axios from 'axios';
 
 const initialState = {
   countries: [],
   selectedCountry: null,
-  loading: false,
+  isloading: false,
   error: null,
 };
 
@@ -28,19 +29,28 @@ const countriesSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(fetchCountries.pending, (state) => {
-        state.loading = true;
+        state.isloading = true;
       })
       .addCase(fetchCountries.fulfilled, (state, action) => {
-        state.countries = action.payload;
-        state.loading = false;
+        state.isloading = false;
         state.error = null;
+        const countries = action.payload;
+        state.countries = countries.map((country) => ({
+          id: uuidv4(),
+          name: country.country,
+          population: country.population.toLocaleString('en-US'),
+          cases: country.cases.toLocaleString('en-US'),
+          recovered: country.recovered.toLocaleString('en-US'),
+          flag: country.countryInfo.flag,
+        }));
       })
       .addCase(fetchCountries.rejected, (state, action) => {
-        state.loading = false;
+        state.isloading = false;
         state.error = action.error.message;
       });
   },
 });
 
+export { fetchCountries };
 export const { selectCountry } = countriesSlice.actions;
 export default countriesSlice.reducer;
