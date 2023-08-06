@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 const CountryDetail = ({ title, amount }) => (
   <li>
     <div>
-      <h3 >{ title }</h3>
+      <h3>{ title }</h3>
     </div>
     <div>
       <p>{ amount }</p>

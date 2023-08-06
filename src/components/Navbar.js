@@ -1,23 +1,31 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowLeft, faCoffee, faMicrophone, faCog } from '@fortawesome/free-solid-svg-icons';
+import { faMicrophone, faCog } from '@fortawesome/free-solid-svg-icons';
 
-const Navbar = () => (
+const Navbar = ({ nav }) => (
   <nav>
     <li>
-      <NavLink to="/">
-        <FontAwesomeIcon icon={faArrowLeft} />
+      <NavLink to={nav.path}>
+        { nav.logo }
       </NavLink>
       <NavLink to="/id" />
     </li>
-    <li><h1 className="text-3xl font-bold underline">Covid-19 Stats</h1></li>
-    <li className="icon">
-      <FontAwesomeIcon icon={faCoffee} />
+    <li><h1 className="text-3xl font-bold underline">{ nav.pageTitle }</h1></li>
+    <li>
       <FontAwesomeIcon icon={faMicrophone} />
       <FontAwesomeIcon icon={faCog} />
     </li>
   </nav>
 );
+
+Navbar.propTypes = {
+  nav: PropTypes.shape({
+    logo: PropTypes.node,
+    path: PropTypes.string,
+    pageTitle: PropTypes.string,
+  }).isRequired,
+};
 
 export default Navbar;

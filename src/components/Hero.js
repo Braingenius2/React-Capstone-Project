@@ -1,20 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Hero = ({ imageSrc, name, details }) => (
+const Hero = ({ image, name, details }) => (
   <div className="hero">
     <div>
-      <img src={imageSrc} alt={name} />
+      <img src={image} alt={name} />
     </div>
     <div>
       <h1>{ name }</h1>
       {
         details.map(
-          ({ stats, text }) => (
-            <p key={text}>
+          ({ stats, title }) => (
+            <p key={title}>
               { stats }
               {' '}
-              { text }
+              { title }
             </p>
           ),
         )
@@ -24,13 +24,13 @@ const Hero = ({ imageSrc, name, details }) => (
 );
 
 Hero.defaultProps = {
-  imageSrc: '',
+  image: '',
   name: '',
   details: [],
 };
 
 Hero.propTypes = {
-  imageSrc: PropTypes.string,
+  image: PropTypes.string,
   name: PropTypes.string,
   details: PropTypes.arrayOf(PropTypes.shape({
     stats: PropTypes.string,
