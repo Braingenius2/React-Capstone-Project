@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { NavLink } from 'react-router-dom';
 
 const Country = ({
   flag, name, covidCases,
@@ -7,7 +8,7 @@ const Country = ({
   const countryName = name.replace(/\s/g, '-');
 
   return (
-    <a href={`${countryName}`}>
+    <NavLink to={`${countryName}`}>
       <div>
         <img src={flag} alt={`flag of ${countryName}`} />
       </div>
@@ -22,7 +23,7 @@ const Country = ({
       <div>
         <div>right arrow in circle here</div>
       </div>
-    </a>
+    </NavLink>
   );
 };
 

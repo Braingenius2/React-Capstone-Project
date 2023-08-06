@@ -31,11 +31,7 @@ const initialState = {
 const continentsSlice = createSlice({
   name: 'continents',
   initialState,
-  reducers: {
-    selectContinent: (state, action) => {
-      state.selectedContinent = action.payload;
-    },
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(fetchContinents.pending, (state) => {

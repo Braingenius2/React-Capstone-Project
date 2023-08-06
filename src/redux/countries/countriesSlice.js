@@ -21,11 +21,7 @@ const fetchCountries = createAsyncThunk('countries/fetch', async (_, { rejectWit
 const countriesSlice = createSlice({
   name: 'countries',
   initialState,
-  reducers: {
-    selectCountry: (state, action) => {
-      state.selectedCountry = action.payload;
-    },
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(fetchCountries.pending, (state) => {
@@ -52,5 +48,4 @@ const countriesSlice = createSlice({
 });
 
 export { fetchCountries };
-export const { selectCountry } = countriesSlice.actions;
 export default countriesSlice.reducer;

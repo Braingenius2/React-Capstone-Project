@@ -2,14 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
-import PropTypes from 'prop-types';
+import { useParams } from 'react-router-dom';
 import Hero from '../components/Hero';
 import Navbar from '../components/Navbar';
 import continentMaps from '../components/continentsMaps';
 import Country from '../components/Country';
 
-const CountriesPage = ({ match }) => {
-  const { continentName } = match.params;
+const CountriesPage = () => {
+  const { continentName } = useParams();
   const { continents } = useSelector((state) => state.continents);
   const { countries, isLoading, error } = useSelector((state) => state.countries);
 
@@ -89,14 +89,6 @@ const CountriesPage = ({ match }) => {
       </main>
     </div>
   );
-};
-
-CountriesPage.propTypes = {
-  match: PropTypes.shape({
-    params: PropTypes.shape({
-      continentName: PropTypes.string.isRequired,
-    }).isRequired,
-  }).isRequired,
 };
 
 export default CountriesPage;

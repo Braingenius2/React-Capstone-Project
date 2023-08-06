@@ -25,7 +25,15 @@ Navbar.propTypes = {
     logo: PropTypes.node,
     path: PropTypes.string,
     pageTitle: PropTypes.string,
-  }).isRequired,
+  }),
+};
+
+Navbar.defaultProps = {
+  nav: {
+    logo: null,
+    path: '/',
+    pageTitle: '',
+  },
 };
 
 export default Navbar;

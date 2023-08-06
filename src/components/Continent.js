@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { NavLink } from 'react-router-dom';
 
 const Continent = ({ map, name, covidCases }) => {
   const continentName = name.replace(/\s/g, '-');
 
   return (
-    <a href={`${continentName}/countries`}>
+    <NavLink to={`${continentName}`}>
       <div>
         <div>arrow right img here</div>
       </div>
@@ -20,7 +21,7 @@ const Continent = ({ map, name, covidCases }) => {
           Covid cases
         </p>
       </div>
-    </a>
+    </NavLink>
   );
 };
 

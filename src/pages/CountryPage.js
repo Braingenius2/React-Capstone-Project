@@ -1,14 +1,14 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
-import PropTypes from 'prop-types';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
 import CountryDetail from '../components/CountryDetail';
 
-const CountryPage = ({ match }) => {
-  const { continentName, countryName } = match.params;
+const CountryPage = () => {
+  const { continentName, countryName } = useParams();
 
   const country = countryName.replace(/-/g, ' ');
 
@@ -51,15 +51,6 @@ const CountryPage = ({ match }) => {
       </main>
     </div>
   );
-};
-
-CountryPage.propTypes = {
-  match: PropTypes.shape({
-    params: PropTypes.shape({
-      continentName: PropTypes.string.isRequired,
-      countryName: PropTypes.string.isRequired,
-    }).isRequired,
-  }).isRequired,
 };
 
 export default CountryPage;
