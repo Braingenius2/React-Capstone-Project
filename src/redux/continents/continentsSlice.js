@@ -1,69 +1,58 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-import { v4 as uuidv4 } from 'uuid';
+import amountFormatter from '../../helper/amountFormatter';
 
-const fetchContinents = createAsyncThunk('fetchContinents', async (_, { rejectWithValue }) => {
+const apiEndpoint = 'https://disease.sh/v3/covid-19/continents';
+
+export const getAllContinents = createAsyncThunk('continents/getAllContinents', async (thunkAPI) => {
   try {
-    const response = await axios.get('https://disease.sh/v3/covid-19/continents');
+    const response = await axios.get(apiEndpoint);
     return response.data;
   } catch (error) {
-    return rejectWithValue('There was an error fetching all continents', error);
-  }
-});
-
-const fetchAContinent = createAsyncThunk('fetchAContinent', async (continent, { rejectWithValue }) => {
-  try {
-    const response = await axios.get(`https://disease.sh/v3/covid-19/continents/${continent}`);
-    return response.data;
-  } catch (error) {
-    return rejectWithValue('There was an error fetching the continent', error);
+    return thunkAPI.rejectWithValue(error.message);
   }
 });
 
 const initialState = {
   continents: [],
-  selectedContinent: null,
   totalCases: '',
   isLoading: false,
   error: null,
 };
 
-const continentsSlice = createSlice({
+export const continentsSlice = createSlice({
   name: 'continents',
   initialState,
-  reducers: {},
+  reducers: {
+
+  },
   extraReducers: (builder) => {
     builder
-      .addCase(fetchContinents.pending, (state) => {
+      .addCase(getAllContinents.pending, (state) => {
         state.isLoading = true;
       })
-      .addCase(fetchContinents.fulfilled, (state, action) => {
+      .addCase(getAllContinents.fulfilled, (state, action) => {
         state.isLoading = false;
-        const continents = action.payload;
-        state.continents = continents.map((continent) => (
+        state.continents = action.payload.map((continent, index) => (
           {
-            id: uuidv4(),
+            id: (index + 1),
             name: continent.continent,
-            cases: continent.cases.toLocaleString('en-US'),
-            recovered: continent.recovered.toLocaleString('en-US'),
+            population: amountFormatter(continent.population),
+            cases: amountFormatter(continent.cases),
+            deaths: amountFormatter(continent.deaths),
+            recovered: amountFormatter(continent.recovered),
+            active: amountFormatter(continent.active),
           }
         ));
-        state.totalCases = continents.reduce((x, continent) => x + continent.cases, 0).toLocaleString('en-US');
+        state.totalCases = amountFormatter(
+          action.payload.reduce((acc, continent) => acc + continent.cases, 0),
+        );
       })
-      .addCase(fetchContinents.rejected, (state, action) => {
+      .addCase(getAllContinents.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
-      })
-      .addCase(fetchAContinent.fulfilled, (state, action) => {
-        const continent = action.payload;
-        state.selectedContinent = {
-          population: continent.population.toLocaleString('en-US'),
-          cases: continent.cases.toLocaleString('en-US'),
-          recovered: continent.recovered.toLocaleString('en-US'),
-        };
       });
   },
 });
 
-export { fetchContinents, fetchAContinent };
 export default continentsSlice.reducer;

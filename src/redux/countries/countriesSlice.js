@@ -1,51 +1,60 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { v4 as uuidv4 } from 'uuid';
 import axios from 'axios';
+import amountFormatter from '../../helper/amountFormatter';
+
+const apiEndpoint = 'https://disease.sh/v3/covid-19/countries';
+
+export const getAllCountries = createAsyncThunk(
+  'countries/getAllCountries',
+  async (thunkAPI) => {
+    try {
+      const response = await axios.get(apiEndpoint);
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  },
+);
 
 const initialState = {
   countries: [],
-  selectedCountry: null,
-  isloading: false,
+  isLoading: false,
   error: null,
 };
 
-const fetchCountries = createAsyncThunk('countries/fetch', async (_, { rejectWithValue }) => {
-  try {
-    const response = await axios.get('https://disease.sh/v3/covid-19/countries');
-    return response.data;
-  } catch (error) {
-    return rejectWithValue('There was an error fetching countries', error);
-  }
-});
-
-const countriesSlice = createSlice({
+export const countriesSlice = createSlice({
   name: 'countries',
   initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(fetchCountries.pending, (state) => {
-        state.isloading = true;
+      .addCase(getAllCountries.pending, (state) => {
+        state.isLoading = true;
       })
-      .addCase(fetchCountries.fulfilled, (state, action) => {
-        state.isloading = false;
-        state.error = null;
-        const countries = action.payload;
-        state.countries = countries.map((country) => ({
-          id: uuidv4(),
+      .addCase(getAllCountries.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.countries = action.payload.map((country, index) => ({
+          id: index + 1,
           name: country.country,
-          population: country.population.toLocaleString('en-US'),
-          cases: country.cases.toLocaleString('en-US'),
-          recovered: country.recovered.toLocaleString('en-US'),
+          continent: country.continent,
           flag: country.countryInfo.flag,
+          population: amountFormatter(country.population),
+          cases: amountFormatter(country.cases),
+          todayCases: amountFormatter(country.todayCases),
+          deaths: amountFormatter(country.deaths),
+          todayDeaths: amountFormatter(country.todayDeaths),
+          recovered: amountFormatter(country.recovered),
+          todayRecovered: amountFormatter(country.todayRecovered),
+          active: amountFormatter(country.active),
+          critical: amountFormatter(country.critical),
+          tests: amountFormatter(country.tests),
         }));
       })
-      .addCase(fetchCountries.rejected, (state, action) => {
-        state.isloading = false;
-        state.error = action.error.message;
+      .addCase(getAllCountries.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
       });
   },
 });
 
-export { fetchCountries };
 export default countriesSlice.reducer;
