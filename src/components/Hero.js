@@ -2,16 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Hero = ({ image, name, details }) => (
-  <div className="hero">
-    <div>
-      <img src={image} alt={name} />
+  <div className="hero flex items-center justify-center bg-pink-500">
+    <div className="w-1/2">
+      <img src={image} alt={name} className="w-full max-h-200" />
     </div>
-    <div>
-      <h1>{ name }</h1>
+    <div className="ml-4 w-1/3">
+      <h2 className="text-2xl font-bold ">{ name }</h2>
       {
         details.map(
           ({ stats, title }) => (
-            <p key={title}>
+            <p key={title} className="text-lg">
               { stats }
               {' '}
               { title }

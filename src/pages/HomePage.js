@@ -23,14 +23,16 @@ const HomePage = () => {
           details={[{ stats: totalCases, title: 'cases' }]}
         />
         <section>
-          <h2>Stats by continents</h2>
-          <div>
-            { continents.map((continent) => (
+          <h2 className="text-2xl font-bold bg-pink-700 text-white">Stats by continents</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-0 border-none">
+            { continents.map((continent, index) => (
               <Continent
                 key={continent.id}
                 map={Continent[continent.name]}
                 name={continent.name}
                 covidCases={continent.cases}
+                index={index}
+                columnIndex={index % 2 === 0 ? 0 : 1}
               />
             ))}
           </div>
