@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
+import { FiArrowRightCircle } from 'react-icons/fi';
 
 const Continent = ({
   map, name, covidCases, index, columnIndex,
@@ -14,7 +15,7 @@ const Continent = ({
   return (
     <NavLink to={`${continentName}`} className={`p-4 ${backgroundColor}`}>
       <div>
-        <div>arrow right img here</div>
+        <FiArrowRightCircle />
       </div>
       <div>
         <img src={map} alt={name} />
