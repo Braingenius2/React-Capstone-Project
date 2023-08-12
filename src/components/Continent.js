@@ -42,7 +42,7 @@ const Continent = ({
         />
       </div>
       <div>
-        <h3>{name}</h3>
+        <h3 className="text-3xl font-bold">{name}</h3>
         <p>
           {covidCases}
           {' '}

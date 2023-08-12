@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { useParams } from 'react-router-dom';
 import Hero from '../components/Hero';
 import Navbar from '../components/Navbar';
@@ -56,9 +54,9 @@ const CountriesPage = () => {
   return (
     <div>
       <Navbar
-        nav={{ logo: <FontAwesomeIcon icon={faArrowLeft} />, path: '/', pageTitle: 'Continent Statistics' }}
+        nav={{ logo: '', path: '/', pageTitle: 'Continent Statistics' }}
       />
-      <main>
+      <div>
         <Hero
           image={continentMaps[continent]}
           name={continent}
@@ -74,19 +72,31 @@ const CountriesPage = () => {
             placeholder="Search country"
             id="search-country"
             onChange={searchHandler}
+            style={{
+              color: 'black',
+              outline: 'none',
+              width: '100%',
+            }}
           />
         </div>
         <section>
           <h2>Stats by countries</h2>
-          <div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-0 border-none">
             {filteredCountries.searchedCountries.map(({
               id, flag, name, cases,
-            }) => (
-              <Country key={id} flag={flag} name={name} covidCases={cases} />
+            }, index) => (
+              <Country
+                key={id}
+                flag={flag}
+                name={name}
+                covidCases={cases}
+                index={index}
+                columnIndex={index % 2 === 0 ? 0 : 1}
+              />
             ))}
           </div>
         </section>
-      </main>
+      </div>
     </div>
   );
 };

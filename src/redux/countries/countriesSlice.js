@@ -35,6 +35,7 @@ const countriesSlice = createSlice({
           id: uuidv4(),
           name: country.country,
           population: country.population.toLocaleString('en-US'),
+          continent: country.continent,
           cases: country.cases.toLocaleString('en-US'),
           recovered: country.recovered.toLocaleString('en-US'),
           flag: country.countryInfo.flag,

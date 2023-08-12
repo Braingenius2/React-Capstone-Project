@@ -7,7 +7,7 @@ const Hero = ({ image, name, details }) => (
       <img src={image} alt={name} className="w-full max-h-200" />
     </div>
     <div className="ml-4 w-1/3">
-      <h2 className="text-2xl font-bold ">{ name }</h2>
+      <h2 className="text-3xl font-bold ">{ name }</h2>
       {
         details.map(
           ({ stats, title }) => (
