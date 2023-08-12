@@ -4,6 +4,7 @@ import Hero from '../components/Hero';
 import Navbar from '../components/Navbar';
 import worldMap from '../images/world_map.png';
 import Continent from '../components/Continent';
+import continentMaps from '../components/continentsMaps';
 
 const HomePage = () => {
   const {
@@ -28,7 +29,7 @@ const HomePage = () => {
             { continents.map((continent, index) => (
               <Continent
                 key={continent.id}
-                map={Continent[continent.name]}
+                map={continentMaps[continent.name]}
                 name={continent.name}
                 covidCases={continent.cases}
                 index={index}

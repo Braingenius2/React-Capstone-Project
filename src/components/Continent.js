@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import { FiArrowRightCircle } from 'react-icons/fi';
@@ -10,20 +10,41 @@ const Continent = ({
   const isLightPink = (isEvenRow && columnIndex === 0) || (!isEvenRow && columnIndex === 1);
   const backgroundColor = isLightPink ? 'bg-pink-600' : 'bg-pink-500';
 
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+  };
+
   const continentName = name.replace(/\s/g, '-');
 
   return (
-    <NavLink to={`${continentName}`} className={`p-4 ${backgroundColor}`}>
+    <NavLink
+      to={`${continentName}`}
+      className={`p-4 ${backgroundColor}`}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
       <div>
         <FiArrowRightCircle />
       </div>
       <div>
-        <img src={map} alt={name} />
+        <img
+          src={map}
+          alt={name}
+          style={{
+            filter: isHovered ? 'opacity(1)' : 'opacity(0.7)',
+          }}
+        />
       </div>
       <div>
-        <h3>{ name }</h3>
+        <h3>{name}</h3>
         <p>
-          { covidCases }
+          {covidCases}
           {' '}
           Covid cases
         </p>

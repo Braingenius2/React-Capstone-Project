@@ -1,8 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
 import CountryDetail from '../components/CountryDetail';
@@ -27,7 +25,7 @@ const CountryPage = () => {
   return (
     <div>
       <Navbar
-        nav={{ logo: <FontAwesomeIcon icon={faArrowLeft} />, path: `/${continentName}`, pageTitle: 'Country stats' }}
+        nav={{ logo: '', path: `/${continentName}`, pageTitle: 'Country stats' }}
       />
       <main>
         <Hero

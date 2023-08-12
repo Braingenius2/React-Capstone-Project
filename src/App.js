@@ -22,7 +22,7 @@ function App() {
       <div>
         <Routes>
           <Route index path="/" element={<HomePage />} />
-          <Route path=":continent" element={<CountriesPage />} />
+          <Route path=":continentName" element={<CountriesPage />} />
           <Route path=":continent/:countryName" element={<CountryPage />} />
         </Routes>
       </div>
