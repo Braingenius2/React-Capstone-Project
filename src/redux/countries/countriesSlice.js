@@ -39,6 +39,13 @@ const countriesSlice = createSlice({
           cases: country.cases.toLocaleString('en-US'),
           recovered: country.recovered.toLocaleString('en-US'),
           flag: country.countryInfo.flag,
+          todayCases: country.todayCases.toLocaleString('en-US'),
+          deaths: country.deaths.toLocaleString('en-US'),
+          todayDeaths: country.todayDeaths.toLocaleString('en-US'),
+          todayRecovered: country.todayRecovered.toLocaleString('en-US'),
+          active: country.active.toLocaleString('en-US'),
+          critical: country.critical.toLocaleString('en-US'),
+          tests: country.tests.toLocaleString('en-US'),
         }));
       })
       .addCase(fetchCountries.rejected, (state, action) => {

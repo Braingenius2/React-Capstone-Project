@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
+import { FiArrowRightCircle } from 'react-icons/fi';
 
 const Country = ({
   flag, name, covidCases, index, columnIndex,
@@ -45,7 +46,7 @@ const Country = ({
         </p>
       </div>
       <div>
-        <div>right arrow in circle here</div>
+        <FiArrowRightCircle />
       </div>
     </NavLink>
   );

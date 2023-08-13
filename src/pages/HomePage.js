@@ -15,7 +15,11 @@ const HomePage = () => {
   if (error) return <p>{error}</p>;
 
   return (
-    <div>
+    <div style={{
+      display: 'flex',
+      flexDirection: 'column',
+    }}
+    >
       <Navbar nav={{ logo: <p>Covid-19</p>, path: '/', pageTitle: 'World Covid data' }} />
       <main>
         <Hero
@@ -25,8 +29,8 @@ const HomePage = () => {
         />
         <section>
           <h2 className="text-2xl font-bold bg-pink-700 text-white">Stats by continents</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-0 border-none">
-            { continents.map((continent, index) => (
+          <div className="grid grid-cols-2 gap-0 border-none">
+            {continents.map((continent, index) => (
               <Continent
                 key={continent.id}
                 map={continentMaps[continent.name]}

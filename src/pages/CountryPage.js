@@ -12,7 +12,7 @@ const CountryPage = () => {
 
   const { countries } = useSelector((state) => state.countries);
 
-  const selectedCountry = countries.find((country) => country.name === country);
+  const selectedCountry = countries.find((countryItem) => countryItem.name === country);
 
   const filteredStats = Object.keys(selectedCountry)
     .filter((item) => (
@@ -32,12 +32,12 @@ const CountryPage = () => {
           image={selectedCountry?.flag}
           name={country}
           details={[
-            { stats: selectedCountry?.population, title: 'inhabitants' },
+            { stats: selectedCountry?.population, text: 'population' },
           ]}
         />
-        <section>
-          <h2>Country data</h2>
-          <ul>
+        <section className="country-stats">
+          <h2 className="bg-pink-700">Country data</h2>
+          <ul className="country-details">
             {
             filteredStats
               .map((title) => (

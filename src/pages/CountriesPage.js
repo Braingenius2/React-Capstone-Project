@@ -11,11 +11,11 @@ const CountriesPage = () => {
   const { continents } = useSelector((state) => state.continents);
   const { countries, isLoading, error } = useSelector((state) => state.countries);
 
-  const continent = continentName === 'Australia-Oceania'
+  const continentParam = continentName === 'Australia-Oceania'
     ? continentName
     : continentName.replaceAll('-', ' ');
 
-  const selectedContinent = continents.find((continent) => continent.name === continent);
+  const selectedContinent = continents.find((continent) => continent.name === continentParam);
   const [filteredCountries, setFilteredCountries] = useState({
     countries: [],
     searchedCountries: [],
@@ -40,26 +40,30 @@ const CountriesPage = () => {
   };
 
   useEffect(() => {
-    const initialCountries = countries.filter((country) => country.continent === continent);
+    const initialCountries = countries.filter((country) => country.continent === continentParam);
     setFilteredCountries((filteredCountries) => ({
       ...filteredCountries,
       countries: initialCountries,
       searchedCountries: initialCountries,
     }));
-  }, [countries, continent]);
+  }, [countries, continentParam]);
 
   if (isLoading) return <p>Loading...</p>;
   if (error) return <p>{error}</p>;
 
   return (
-    <div>
+    <div style={{
+      display: 'flex',
+      flexDirection: 'column',
+    }}
+    >
       <Navbar
         nav={{ logo: '', path: '/', pageTitle: 'Continent Statistics' }}
       />
       <div>
         <Hero
-          image={continentMaps[continent]}
-          name={continent}
+          image={continentMaps[continentParam]}
+          name={continentParam}
           details={[
             { stats: selectedContinent?.population, text: 'population' },
             { stats: selectedContinent?.cases, text: 'total cases' },
@@ -81,7 +85,7 @@ const CountriesPage = () => {
         </div>
         <section>
           <h2>Stats by countries</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-0 border-none">
+          <div className="grid grid-cols-2 gap-0 border-none">
             {filteredCountries.searchedCountries.map(({
               id, flag, name, cases,
             }, index) => (
