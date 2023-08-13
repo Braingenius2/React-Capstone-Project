@@ -24,7 +24,7 @@ const Country = ({
   return (
     <NavLink
       to={`${countryName}`}
-      className={`p-4 ${backgroundColor}`}
+      className={`p-4 ${backgroundColor} country-item`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
