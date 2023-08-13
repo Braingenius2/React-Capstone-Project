@@ -4,7 +4,6 @@ import axios from 'axios';
 
 const initialState = {
   countries: [],
-  selectedCountry: null,
   isloading: false,
   error: null,
 };
