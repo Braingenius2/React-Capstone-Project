@@ -1,28 +1,36 @@
-import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import HomePage from './pages/HomePage';
+import CountriesPage from './pages/CountriesPage';
+import CountryPage from './pages/CountryPage';
+import { fetchContinents } from './redux/continents/continentsSlice';
+import { fetchCountries } from './redux/countries/countriesSlice';
+import 'tailwindcss/tailwind.css';
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchContinents());
+    dispatch(fetchCountries());
+  }, [dispatch]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit
-          {' '}
-          <code>src/App.js</code>
-          {' '}
-          and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <div style={{
+        display: 'flex',
+        flexDirection: 'column',
+      }}
+      >
+        <Routes>
+          <Route index path="/" element={<HomePage />} />
+          <Route path=":continentName" element={<CountriesPage />} />
+          <Route path=":continent/:countryName" element={<CountryPage />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 

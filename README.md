@@ -1,12 +1,12 @@
 
-# Math-Magicians
+# React Capstone Project - Covid-19 info checker
 <a name="readme-top"></a>
 
 <div align="center">
   <img src="http://img.scoop.it/cKEZkd1vEUhIUuoyVpYuQjl72eJkfbmt4t8yenImKBXEejxNn4ZJNZ2ss5Ku7Cxt" alt="logo" width="140"  height="auto" />
   <br/>
 
-  <h3><b>Math-Magicians</b></h3>
+  <h3><b>React Capstone Project - Covid-19 info checker</b></h3>
 
 </div>
 
@@ -35,9 +35,9 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# ⭐ Math-Magicians <a name="about-project"></a>
+# ⭐ React Capstone Project - Covid-19 info checker <a name="about-project"></a>
 
-**"Math magicians" is a Single Page App for math. Perform simple calculations and read a random math-related quote to inspire and motivate mathematical thinking. Built with React. Contributions welcome!** 
+**"React Capstone Project - Covid-19 info checker" is a Single Page App for getting current updates and covid cases worldwide. Check info by continents and by countries. Built with React. Contributions welcome!** 
 
 ## 🛠 Built With <a name="built-with"></a>
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -48,7 +48,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
   <summary>Client</summary>
   <ul>
     <li>React</li>
-    
+    <li>Tailwind CSS<li/>
   </ul>
 </details>
 
@@ -57,8 +57,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ### Key Features <a name="key-features"></a>
 
 - **minimalist UI**
-- **Motivational quotes tailored for maths enthusiasts**
-- **Speedy calculations**
+- **Daily updates on covid cases**
+- **Search bar for speedy access**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -66,7 +66,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- N/A
+- [Live Demo](https://capstone-lwjx.onrender.com/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -97,7 +97,7 @@ Clone this repository to your desired folder:
 
 ```sh
   cd my-folder
-  git clone git@github.com:Braingenius2/Math-Magicians.git
+  git clone git@github.com:Braingenius2/React-Capstone-Project.git
 ```
 
 ### Install
@@ -195,8 +195,8 @@ Example:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [] **Scientific calculator**
-- [] **Generative AI math solving capabilities**
+- [] **My Location options**
+- [] **AI app assistant**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -206,7 +206,7 @@ Example:
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](../../issues/).
+Feel free to check the [issues page](https://github.com/Braingenius2/React-Capstone-Project/issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -222,8 +222,9 @@ If you like this project please drop a review or hit me up for job opportunities
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
+Big thanks to [Nelson Sakwa](https://www.behance.net/sakwadesignstudio) for the design template.
 
-I would like to thank myself and Microverse!
+Also, I would like to thank myself and Microverse!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
