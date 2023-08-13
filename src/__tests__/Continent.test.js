@@ -8,7 +8,7 @@ describe('The continent component', () => {
   test('should render correctly into the DOM', () => {
     const { container } = render(
       <MemoryRouter>
-        <Continent image={continentMaps.Africa} name="Africa" cases="1000" />
+        <Continent map={continentMaps.Africa} name="Africa" covidCases="1000" index= '3' columnIndex='3' />
       </MemoryRouter>,
     );
     expect(container).toMatchSnapshot();
@@ -17,7 +17,7 @@ describe('The continent component', () => {
   test('should navigate to the second page when user clicked on Australia-Oceania continent item', () => {
     render(
       <BrowserRouter>
-        <Continent image={continentMaps['Australia-Oceania']} name="Australia-Oceania" cases="1,345,890" />
+        <Continent map={continentMaps['Australia-Oceania']} name="Australia-Oceania" covidCases="1,345,890" index= '3' columnIndex='3' />
       </BrowserRouter>,
     );
     const continentLink = document.querySelector('.continent-item');
@@ -28,7 +28,7 @@ describe('The continent component', () => {
   test('should render the text: Europe and the number of cases', () => {
     render(
       <MemoryRouter>
-        <Continent image={continentMaps.Europe} name="Europe" cases="20,105,600" />
+        <Continent map={continentMaps.Europe} name="Europe" covidCases="20,105,600" index= '3' columnIndex='3' />
       </MemoryRouter>,
     );
     const continentTitle = screen.queryByText(/Europe/i);

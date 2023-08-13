@@ -1,3 +1,54 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`The Country component should render correctly into the DOM 1`] = `undefined`;
+exports[`The Country component should render correctly into the DOM 1`] = `
+<div>
+  <a
+    class="p-4 bg-pink-500 country-item"
+    href="/Afghanistan"
+  >
+    <div>
+      <img
+        alt="flag of Afghanistan"
+        style="filter: opacity(0.7);"
+      />
+    </div>
+    <div>
+      <h3>
+        Afghanistan
+      </h3>
+      <p>
+         
+        Covid Cases
+      </p>
+    </div>
+    <div>
+      <svg
+        fill="none"
+        height="1em"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <circle
+          cx="12"
+          cy="12"
+          r="10"
+        />
+        <polyline
+          points="12 16 16 12 12 8"
+        />
+        <line
+          x1="8"
+          x2="16"
+          y1="12"
+          y2="12"
+        />
+      </svg>
+    </div>
+  </a>
+</div>
+`;

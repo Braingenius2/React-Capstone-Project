@@ -1,44 +1,15 @@
-import '@testing-library/jest-dom/extend-expect';
-import { render, screen } from '@testing-library/react';
+import React from 'react';
+import { render } from '@testing-library/react';
 import Hero from '../components/Hero';
-import continentMaps from '../components/continentsMaps';
 
-describe('The Hero component', () => {
-  test('should render correctly into the DOM', () => {
-    const { container } = render(
-      <Hero
-        srcImg={continentMaps.Asia}
-        name="Asia"
-        information={[{ stats: '224,317', text: 'cases' }]}
-      />,
-    );
-    expect(container).toMatchSnapshot();
-  });
-
-  test('should render the text: Europe with an empty array in the information prop and no image', () => {
-    const props = {
-      srcImg: 'no-image',
-      name: 'Europe',
-      information: [],
-    };
-    render(<Hero srcImg={props.srcImg} name={props.name} information={props.information} />);
-    const hero = screen.getByText('Europe');
-    expect(hero).toBeInTheDocument();
-  });
-
-  test('should render the text: South America with 3 elements in the information prop array', () => {
-    render(
-      <Hero
-        srcImg={continentMaps['South America']}
-        name="South America"
-        information={[
-          { stats: '68,905,921', text: 'total cases' },
-          { stats: '1,359,165', text: 'deaths' },
-          { stats: '66,504,727', text: 'recovered' },
-        ]}
-      />,
-    );
-    const hero = screen.getByText('South America');
-    expect(hero).toBeInTheDocument();
-  });
+test('renders Hero component', () => {
+  const details = [
+    { stats: '1000', text: 'cases' },
+    { stats: '500', text: 'recovered' },
+  ];
+  const { getByText } = render(<Hero name="Continent" details={details} />);
+  const casesElement = getByText('1000 cases');
+  const recoveredElement = getByText('500 recovered');
+  expect(casesElement).toBeInTheDocument();
+  expect(recoveredElement).toBeInTheDocument();
 });

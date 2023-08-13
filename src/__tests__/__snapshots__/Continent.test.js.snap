@@ -37,6 +37,7 @@ exports[`The continent component should render correctly into the DOM 1`] = `
     <div>
       <img
         alt="Africa"
+        src="Africa-Map.png"
         style="filter: opacity(0.7);"
       />
     </div>
@@ -47,6 +48,7 @@ exports[`The continent component should render correctly into the DOM 1`] = `
         Africa
       </h3>
       <p>
+        1000
          
         Covid cases
       </p>
