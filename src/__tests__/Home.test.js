@@ -5,7 +5,7 @@ import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import continentsReducer, { fetchContinents } from '../redux/continents/continentsSlice';
 import { fakeContinentData } from '../mock/apiData';
-import Home from '../pages/Home';
+import HomePage from '../pages/HomePage';
 
 describe('The Home page component', () => {
   let store;
@@ -21,14 +21,14 @@ describe('The Home page component', () => {
     store = mockStore({
       continents: initialState,
     });
-    store.dispatch(getAllContinents());
+    store.dispatch(fetchContinents());
   });
 
   test('should render correctly into the DOM', async () => {
     const { homeComponent } = render(
       <MemoryRouter>
         <Provider store={store}>
-          <Home />
+          <HomePage />
         </Provider>
       </MemoryRouter>,
     );
@@ -39,7 +39,7 @@ describe('The Home page component', () => {
     render(
       <MemoryRouter>
         <Provider store={store}>
-          <Home />
+          <HomePage />
         </Provider>
       </MemoryRouter>,
     );

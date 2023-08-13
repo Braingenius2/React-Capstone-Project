@@ -28,8 +28,8 @@ describe('The CountryPage component', () => {
       continents: initialStateContinents,
       countries: initialState,
     });
-    store.dispatch(getAllContinents());
-    store.dispatch(getAllCountries());
+    store.dispatch(fetchContinents());
+    store.dispatch(fetchCountries());
   });
 
   test('should render correctly into the DOM', async () => {

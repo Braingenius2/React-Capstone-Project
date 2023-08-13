@@ -1,5 +1,6 @@
 import countriesReducer, { fetchCountries } from '../redux/countries/countriesSlice';
 import { fakeCountriesData, expectedCountriesData } from '../mock/apiData';
+
 describe('The countriesSlice', () => {
   test('should return the initial state of countries on first run', () => {
     const nextState = countriesReducer(undefined, {});

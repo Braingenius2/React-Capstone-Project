@@ -6,6 +6,7 @@ import { render, screen } from '@testing-library/react';
 import continentsReducer, { fetchContinents } from '../redux/continents/continentsSlice';
 import countriesReducer, { fetchCountries } from '../redux/countries/countriesSlice';
 import CountriesPage from '../pages/CountriesPage';
+import { fakeContinentData, fakeCountriesData } from '../mock/apiData';
 
 describe('The CountriesPage component', () => {
   let store;

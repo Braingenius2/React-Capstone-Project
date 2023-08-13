@@ -1,5 +1,4 @@
 import continentsReducer, { fetchContinents } from '../redux/continents/continentsSlice';
-import { fakeContinentData, expectedContinentData } from '../data/testsData';
 import { fakeContinentData, expectedContinentData } from '../mock/apiData';
 
 describe('The continentsSlice', () => {
