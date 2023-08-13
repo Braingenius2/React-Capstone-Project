@@ -30,8 +30,9 @@ const Continent = ({
       onMouseLeave={handleMouseLeave}
       style={{
         display: 'flex',
+        flexDirection: 'column',
         justifyContent: 'flex-end',
-        alignItems: 'center',
+        alignItems: 'end',
       }}
     >
       <div style={{ marginRight: '10px' }}>

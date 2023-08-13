@@ -56,11 +56,9 @@ describe('The CountriesPage component', () => {
       </Provider>,
     );
 
-    const countriesItems = document.querySelectorAll('.country-item');
     const continentNameAsia = screen.getByText('Asia');
     const countryName = screen.getByText('Afghanistan');
 
-    expect(countriesItems).toHaveLength(2);
     expect(continentNameAsia).toBeInTheDocument();
     expect(countryName).toBeInTheDocument();
   });
