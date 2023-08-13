@@ -1,7 +1,6 @@
 import '@testing-library/jest-dom/extend-expect';
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
-import { FiChevronLeft } from 'react-icons/fi';
 import Navbar from '../components/Navbar';
 
 describe('The Navbar component', () => {

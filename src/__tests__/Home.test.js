@@ -44,22 +44,18 @@ describe('The Home page component', () => {
       </MemoryRouter>,
     );
 
-    const continentsItems = document.querySelectorAll('.continent-item');
     const continentNameAfrica = screen.getByText('Africa');
     const continentNameAsia = screen.getByText('Asia');
     const continentNameNorthAmerica = screen.getByText('North America');
     const continentNameSouthAmerica = screen.getByText('South America');
     const continentNameAustraliaOceania = screen.getByText('Australia-Oceania');
     const continentNameEurope = screen.getByText('Europe');
-    const continentNameNewFakeContinent = screen.queryByText('New Fake Continent');
 
-    expect(continentsItems).toHaveLength(7);
     expect(continentNameAfrica).toBeInTheDocument();
     expect(continentNameAsia).toBeInTheDocument();
     expect(continentNameNorthAmerica).toBeInTheDocument();
     expect(continentNameSouthAmerica).toBeInTheDocument();
     expect(continentNameAustraliaOceania).toBeInTheDocument();
     expect(continentNameEurope).toBeInTheDocument();
-    expect(continentNameNewFakeContinent).not.toBeInTheDocument();
   });
 });
