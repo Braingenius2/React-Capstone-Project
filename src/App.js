@@ -19,7 +19,11 @@ function App() {
 
   return (
     <BrowserRouter>
-      <div>
+      <div style={{
+        display: 'flex',
+        flexDirection: 'column',
+      }}
+      >
         <Routes>
           <Route index path="/" element={<HomePage />} />
           <Route path=":continentName" element={<CountriesPage />} />
