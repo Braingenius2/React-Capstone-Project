@@ -7,7 +7,7 @@ describe('The Country component', () => {
   test('should render correctly into the DOM', () => {
     const { container } = render(
       <BrowserRouter>
-        <Country image="https://disease.sh/assets/img/flags/af.png" name="Afghanistan" cases="224,317" />
+        <Country flag="https://disease.sh/assets/img/flags/af.png" name="Afghanistan" covidCases="224,317" />
       </BrowserRouter>,
     );
     expect(container).toMatchSnapshot();
@@ -16,7 +16,7 @@ describe('The Country component', () => {
   test('should render the text: Algeria and the number of cases', () => {
     render(
       <BrowserRouter>
-        <Country image="https://disease.sh/assets/img/flags/dz.png" name="Algeria" cases="271,852" />
+        <Country map="https://disease.sh/assets/img/flags/dz.png" name="Algeria" covidCases="271,852" />
       </BrowserRouter>,
     );
     const countryTitle = screen.getByText(/Algeria/i);

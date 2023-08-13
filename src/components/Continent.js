@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import { FiArrowRightCircle } from 'react-icons/fi';
 
-jsx;
-
 const Continent = ({
   map, name, covidCases, index, columnIndex,
 }) => {
