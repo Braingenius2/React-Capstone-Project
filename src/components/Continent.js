@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import { FiArrowRightCircle } from 'react-icons/fi';
 
+jsx;
+
 const Continent = ({
   map, name, covidCases, index, columnIndex,
 }) => {
@@ -28,8 +30,13 @@ const Continent = ({
       className={`p-4 ${backgroundColor}`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+      style={{
+        display: 'flex',
+        justifyContent: 'flex-end',
+        alignItems: 'center',
+      }}
     >
-      <div>
+      <div style={{ marginRight: '10px' }}>
         <FiArrowRightCircle />
       </div>
       <div>
